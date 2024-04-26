@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>User Data</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Action</th>
+
+  </tr>
+  {% for d in users %}
+  <tr>
+    <td>{{d.name}}</td>
+    <td>{{d.email}}</td>
+    <td>{{d.password}}</td>
+    <td><a href="{% url 'delete' d.id %}" class="btn btn-danger">Delete</a></td>
+    <td><a href="{% url 'update' d.id %}" class="btn btn-danger">Update</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+
